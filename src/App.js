@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HomePage from "./views/HomePage";
-import MoviesPage from "./views/MoviesPage";
+import MovieDetailsPage from "./views/MovieDetailsPage";
 
 import "./App.css";
 
@@ -16,7 +16,11 @@ export default function App() {
         </Route>
 
         <Route path="/movies" exact>
-          <MoviesPage />
+         asddf
+        </Route>
+
+        <Route path="/movies/:movieId" >
+          <MovieDetailsPage />
         </Route>
       </Switch>
     </div>

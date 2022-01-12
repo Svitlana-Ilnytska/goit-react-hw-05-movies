@@ -8,6 +8,7 @@ export default function HomePage() {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
 
+ 
   useEffect(() => {
     fetchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps

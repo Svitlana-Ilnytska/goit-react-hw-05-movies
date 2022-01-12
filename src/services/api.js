@@ -12,8 +12,20 @@ export function fetchMovies() {
   });
 }
 
+export function fetchMoviesById(movieId) {
+  return fetch(
+    `${BASE_URL}/3/find/${movieId}?api_key=${API_KEY}&language=en-US&external_source=imdb_id`
+  ).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+}
+
 const api = {
   fetchMovies,
+  fetchMoviesById,
 };
 
 export default api;
