@@ -1,0 +1,14 @@
+.link {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(63, 36, 88);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.activeLink {
+  composes: link;
+  color: rgb(185, 142, 226);
+  border-bottom: 2px solid blueviolet;
+}
