@@ -14,7 +14,7 @@ export function fetchMovies() {
 
 export function fetchMoviesById(movieId) {
   return fetch(
-    `${BASE_URL}/3/find/${movieId}?api_key=${API_KEY}&language=en-US&external_source=imdb_id`
+    `${BASE_URL}/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
   ).then((response) => {
     if (response.ok) {
       return response.json();
