@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { Link, useRouteMatch } from "react-router-dom";
 import MoviesList from "../components/MoviesList/MoviesList";
 import * as api from "../services/api";
 
