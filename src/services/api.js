@@ -23,9 +23,21 @@ export function fetchMoviesById(movieId) {
   });
 }
 
+export function fetchMoviesBySearch(query) {
+  return fetch(
+    `${BASE_URL}/3/search/movie?api_key=${API_KEY}&language=en-US&include_adult=false&query=${query}&page=1`
+  ).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+}
+
 const api = {
   fetchMovies,
   fetchMoviesById,
+  fetchMoviesBySearch,
 };
 
 export default api;

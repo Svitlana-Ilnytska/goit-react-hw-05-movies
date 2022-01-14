@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import MoviePreview from "../components/MoviePreview/MoviePreview";
+
 import * as api from "../services/api";
 
 export default function MovieDetailsPage() {
@@ -28,27 +30,13 @@ export default function MovieDetailsPage() {
 
       .finally(() => setLoader(false));
   };
-  const photo = "https://image.tmdb.org/t/p/w500";
   return (
     <>
       {error && (
         <p className="notification">Sorry. Something is wrong ¯\_(ツ)_/¯</p>
       )}
       {loader && <p>Загрузка...</p>}
-      {movie && (
-        <>
-          <img
-            src={`${photo}${movie.poster_path}`}
-            alt={movie.title}
-            width={250}
-          />
-          <h2>{movie.title}</h2>
-          <h3>Overview</h3>
-          <p>{movie.overview}</p>
-          <h3>Genres</h3>
-          <p>{movie.genre}</p>
-        </>
-      )}
+      {movie && <MoviePreview movie={movie} />}
     </>
   );
 }
