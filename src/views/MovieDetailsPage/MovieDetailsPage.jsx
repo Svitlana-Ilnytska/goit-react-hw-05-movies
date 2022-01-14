@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import MoviePreview from "../components/MoviePreview/MoviePreview";
+import * as api from "../../services/api";
+import MoviePreview from "../../components/MoviePreview/MoviePreview";
+import Spiner from "../../components/Spiner/Spiner";
 
-import * as api from "../services/api";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -33,9 +36,9 @@ export default function MovieDetailsPage() {
   return (
     <>
       {error && (
-        <p className="notification">Sorry. Something is wrong ¯\_(ツ)_/¯</p>
+        <p className={css.notification}>Sorry. Something is wrong ¯\_(ツ)_/¯</p>
       )}
-      {loader && <p>Загрузка...</p>}
+      {loader && <Spiner />}
       {movie && <MoviePreview movie={movie} />}
     </>
   );

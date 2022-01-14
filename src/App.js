@@ -1,8 +1,8 @@
 import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
-import HomePage from "./views/HomePage";
-import MovieDetailsPage from "./views/MovieDetailsPage";
-import MoviesPage from "./views/MoviesPage";
+import HomePage from "./views/HomePage/HomePage";
+import MovieDetailsPage from "./views/MovieDetailsPage/MovieDetailsPage";
+import MoviesPage from "./views/MoviesPage/MoviesPage";
 
 import "./App.css";
 

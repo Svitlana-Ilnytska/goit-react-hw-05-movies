@@ -1,26 +1,35 @@
 import React, { useState, useEffect } from "react";
-import MoviesList from "../components/MoviesList/MoviesList";
-import Spiner from "../components/Spiner/Spiner";
-import * as api from "../services/api";
+import * as api from "../../services/api";
+import Searchbar from "../../components/Searchbar/Searchbar";
+import MoviesList from "../../components/MoviesList/MoviesList";
+import Spiner from "../../components/Spiner/Spiner";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import css from "./HomePage.module.css";
 
-export default function HomePage() {
+export default function MoviesPage() {
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchMovies();
+    if (!query) {
+      return;
+    }
+    fetchMoviesBySearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [query]);
 
-  const fetchMovies = () => {
+  const onSearchQuery = (query) => {
+    setMovies([]);
+    setQuery(query);
+  };
+
+  const fetchMoviesBySearch = () => {
     setLoader(true);
 
     api
-      .fetchMovies()
+      .fetchMoviesBySearch(query)
       .then(({ results }) => setMovies(results))
 
       .catch((error) => {
@@ -37,12 +46,8 @@ export default function HomePage() {
         <p className="notification">Sorry. Something is wrong ¯\_(ツ)_/¯</p>
       )}
       {loader && <Spiner />}
-      {movies && (
-        <>
-          <h2 className={css.title}>Trending today</h2>{" "}
-          <MoviesList movies={movies} />
-        </>
-      )}
+      {<Searchbar onSubmit={onSearchQuery} />}
+      {movies && <MoviesList movies={movies} />}
     </>
   );
 }

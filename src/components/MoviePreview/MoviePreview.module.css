@@ -1,0 +1,92 @@
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h2,
+h3,
+p,
+li,
+span {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.moviePreview {
+  margin: 15px 0;
+  padding-left: 50px;
+}
+
+.movie {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.image {
+  margin: 15px 0;
+  width: 250px;
+  object-fit: cover;
+}
+
+.button {
+  width: 110px;
+  height: 20px;
+  background-image: url("https://cdn-icons-png.flaticon.com/128/1621/1621595.png");
+  background-size: 10%;
+  background-repeat: no-repeat;
+  background-position: 10px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(232, 219, 245);
+  border: 1px solid rgb(63, 36, 88);
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.movieOverview {
+  width: 500px;
+}
+
+.list {
+  margin: 0;
+  padding-left: 13px;
+}
+
+.link {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(63, 36, 88);
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Mochiy Pop P One", sans-serif;
+  border: 1px solid blueviolet;
+  border-radius: 2px;
+  background-color: rgb(232, 219, 245);
+}
+
+.activeLink {
+  composes: link;
+  color: rgb(185, 142, 226);
+}
+
+.movieDetails {
+  display: flex;
+  justify-content: space-around;
+}
+
+.secondaryNav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailsNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
