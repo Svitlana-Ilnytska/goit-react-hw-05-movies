@@ -2,9 +2,10 @@ import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import HomePage from "./views/HomePage";
 import MovieDetailsPage from "./views/MovieDetailsPage";
+import MoviesPage from "./views/MoviesPage";
 
 import "./App.css";
-console.log(process.env.REACT_APP_API_KEY)
+
 export default function App() {
   return (
     <div>
@@ -16,10 +17,10 @@ export default function App() {
         </Route>
 
         <Route path="/movies" exact>
-         asddf
+          <MoviesPage />
         </Route>
 
-        <Route path="/movies/:movieId" >
+        <Route path="/movies/:movieId">
           <MovieDetailsPage />
         </Route>
       </Switch>

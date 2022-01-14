@@ -1,4 +1,4 @@
-const API_KEY = "e8ad9fce8be376ae39b35f64abca58d4";
+const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = "https://api.themoviedb.org";
 
 export function fetchMovies() {

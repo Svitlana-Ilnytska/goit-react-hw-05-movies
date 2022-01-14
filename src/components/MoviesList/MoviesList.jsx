@@ -7,7 +7,7 @@ export default function MoviesList({ movies }) {
   const { url } = useRouteMatch();
   return (
     <ul>
-      {movies.map(({ id, imgUrl, title }) => (
+      {movies.map(({ id, title }) => (
         <li key={id}>
           <Link to={`${url}movies/${id}`}>{title}</Link>
         </li>
