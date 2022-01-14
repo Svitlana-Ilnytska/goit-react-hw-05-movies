@@ -5,7 +5,7 @@ import css from "./Navigation.module.css";
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav className={css.main_nav}>
       <NavLink
         exact
         to="/"

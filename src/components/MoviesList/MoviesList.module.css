@@ -1,0 +1,14 @@
+.list_link {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(27, 12, 41);
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  list-style: none;
+}
