@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import * as api from "../services/api";
 import Searchbar from "../components/Searchbar/Searchbar";
 import MoviesList from "../components/MoviesList/MoviesList";
+import Spiner from "../components/Spiner/Spiner";
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 export default function MoviesPage() {
   const [query, setQuery] = useState("");
@@ -42,7 +45,7 @@ export default function MoviesPage() {
       {error && (
         <p className="notification">Sorry. Something is wrong ¯\_(ツ)_/¯</p>
       )}
-      {loader && <p>Загрузка...</p>}
+      {loader && <Spiner />}
       {<Searchbar onSubmit={onSearchQuery} />}
       {movies && <MoviesList movies={movies} />}
     </>

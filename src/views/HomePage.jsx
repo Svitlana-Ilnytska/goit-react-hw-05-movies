@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MoviesList from "../components/MoviesList/MoviesList";
+import Spiner from "../components/Spiner/Spiner";
 import * as api from "../services/api";
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import css from "./HomePage.module.css";
 
 export default function HomePage() {
@@ -34,7 +36,7 @@ export default function HomePage() {
       {error && (
         <p className="notification">Sorry. Something is wrong ¯\_(ツ)_/¯</p>
       )}
-      {loader && <p>Загрузка...</p>}
+      {loader && <Spiner />}
       {movies && (
         <>
           <h2 className={css.title}>Trending today</h2>{" "}
