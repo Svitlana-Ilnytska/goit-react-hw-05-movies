@@ -1,14 +1,15 @@
 .list_link {
   display: flex;
   flex-direction: column;
+  padding-left: 60px;
 }
 
 .link {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 200;
   color: rgb(27, 12, 41);
-  display: inline-block;
+  /* display: inline-block; */
   text-decoration: none;
-  font-family: 'Mochiy Pop P One', sans-serif;
-  list-style: none;
+  font-family: 'Josefin Sans', sans-serif;
+  /* list-style: none; */
 }
