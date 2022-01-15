@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import css from "./Searchbar.module.css";
 
@@ -14,9 +14,9 @@ export default function Searchbar({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (query.trim() === "") {
-    //   return toast("Please enter something;)");
-    // }
+    if (query.trim() === "") {
+      return toast("Please enter something;)");
+    }
 
     onSubmit(query);
     setQuery("");
@@ -28,8 +28,6 @@ export default function Searchbar({ onSubmit }) {
         <input
           className={css.input}
           type="text"
-          // autocomplete="off"
-          // autofocus
           placeholder="Your favorite movie"
           value={query}
           name="query"

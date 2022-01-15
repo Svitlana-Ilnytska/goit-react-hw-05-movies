@@ -12,20 +12,27 @@ img {
 }
 
 .cast {
-
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .list {
   display: flex;
   text-decoration: none;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .item {
-    display: flex;
-    flex-direction: column;
-    width: 170px;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  align-items: center;
+  text-align: center;
+}
+
+.notification {
+  margin: 0 auto;
+  display: block;
+  width: 270px;
+  text-align: center;
+  border-bottom: 2px solid tomato;
 }

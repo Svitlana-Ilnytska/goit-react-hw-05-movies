@@ -4,6 +4,8 @@ import Spiner from "../../components/Spiner/Spiner";
 import * as api from "../../services/api";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import css from "./HomePage.module.css";
 
 export default function HomePage() {
@@ -24,7 +26,7 @@ export default function HomePage() {
       .then(({ results }) => setMovies(results))
 
       .catch((error) => {
-        // toast("Trouble. Something is wrong :(");
+        toast("Trouble. Something is wrong :(");
         setError(error);
       })
 
@@ -34,13 +36,14 @@ export default function HomePage() {
   return (
     <>
       {error && (
-        <p className="notification">Sorry. Something is wrong ¯\_(ツ)_/¯</p>
+        <p className={css.notification}>Sorry. Something is wrong ¯\_(ツ)_/¯</p>
       )}
       {loader && <Spiner />}
       {movies && (
         <>
           <h2 className={css.title}>Trending today</h2>{" "}
           <MoviesList movies={movies} />
+          <ToastContainer />
         </>
       )}
     </>
