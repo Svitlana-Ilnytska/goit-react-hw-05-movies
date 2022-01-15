@@ -34,10 +34,22 @@ export function fetchMoviesBySearch(query) {
   });
 }
 
+export function fetchMovieCast(movieId) {
+  return fetch(
+    `${BASE_URL}/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  ).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+}
+
 const api = {
   fetchMovies,
   fetchMoviesById,
   fetchMoviesBySearch,
+  fetchMovieCast,
 };
 
 export default api;

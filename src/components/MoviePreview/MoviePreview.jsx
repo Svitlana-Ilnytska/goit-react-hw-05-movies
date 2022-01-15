@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+
 
 import css from "./MoviePreview.module.css";
 
@@ -32,39 +32,16 @@ export default function MoviePreview({ movie }) {
           </h2>
           <span>User score: {vote_average && vote_average * 10} % </span>
           <h3>Overview</h3>
-          <p>{overview}</p>
-          <div className={css.movieDetails}>
-            <div>
-              <h3>Genres</h3>
-              {genres && (
-                <ul className={css.list}>
-                  {genres.map(({ id, name }) => (
-                    <li key={id}>{name}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-            <div className={css.detailsNav}>
-              <h3>Additional information</h3>
-              <nav className={css.secondaryNav}>
-                <NavLink
-                  exact
-                  to="/movies/:movieId/cast"
-                  className={css.link}
-                  activeClassName={css.activeLink}
-                >
-                  Cast
-                </NavLink>
-                <NavLink
-                  exact
-                  to="/movies/:movieId/reviews"
-                  className={css.link}
-                  activeClassName={css.activeLink}
-                >
-                  Reviews
-                </NavLink>
-              </nav>
-            </div>
+          <p className={css.overview}>{overview}</p>
+          <div>
+            <h3>Genres</h3>
+            {genres && (
+              <ul className={css.list}>
+                {genres.map(({ id, name }) => (
+                  <li key={id}>{name}</li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>
