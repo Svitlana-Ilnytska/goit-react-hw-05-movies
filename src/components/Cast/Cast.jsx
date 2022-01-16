@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useRouteMatch, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Spiner from "../../components/Spiner/Spiner";
 import * as api from "../../services/api";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import css from "./Cast.module.css";
 
 export default function Cast() {
   const { movieId } = useParams();
-  const { url } = useRouteMatch();
 
   const [cast, setCast] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -33,7 +30,6 @@ export default function Cast() {
       .then(({ cast }) => setCast(cast))
 
       .catch((error) => {
-        toast("Trouble. Something is wrong :(");
         setError(error);
       })
 
@@ -67,7 +63,6 @@ export default function Cast() {
           </ul>
         </div>
       )}
-      <ToastContainer />
     </>
   );
 }

@@ -32,8 +32,7 @@ export default function MoviesPage() {
     if (queryBySearch) {
       setQuery(queryBySearch);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [history, location]);
 
   const onSearchQuery = (queryBySearch) => {
     setMovies([]);

@@ -5,7 +5,8 @@ import css from "./NavigationFromMovie.module.css";
 
 export default function NavigationFromMovie() {
   const { url } = useRouteMatch();
-  const { location } = useLocation();
+  const location = useLocation();
+
   return (
     <div className={css.movieDetails}>
       <div className={css.detailsNav}>
@@ -13,7 +14,7 @@ export default function NavigationFromMovie() {
         <nav className={css.secondaryNav}>
           <NavLink
             exact
-            to={{ pathname: `${url}/cast`, state: { ...location } }}
+            to={{ pathname: `${url}/cast`, state: { ...location.state } }}
             className={css.link}
             activeClassName={css.activeLink}
           >
@@ -21,7 +22,7 @@ export default function NavigationFromMovie() {
           </NavLink>
           <NavLink
             exact
-            to={{ pathname: `${url}/reviews`, state: { ...location } }}
+            to={{ pathname: `${url}/reviews`, state: { ...location.state } }}
             className={css.link}
             activeClassName={css.activeLink}
           >

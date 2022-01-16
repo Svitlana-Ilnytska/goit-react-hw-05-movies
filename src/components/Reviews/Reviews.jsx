@@ -4,8 +4,6 @@ import Spiner from "../../components/Spiner/Spiner";
 import * as api from "../../services/api";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import css from "./Reviews.module.css";
 
 export default function Reviews() {
@@ -28,7 +26,6 @@ export default function Reviews() {
       .then(({ results }) => setReviews(results))
 
       .catch((error) => {
-        toast("Trouble. Something is wrong :(");
         setError(error);
       })
 
@@ -55,7 +52,6 @@ export default function Reviews() {
       ) : (
         <p>We don't have any reviews for this movie.</p>
       )}
-      <ToastContainer />
     </>
   );
 }
