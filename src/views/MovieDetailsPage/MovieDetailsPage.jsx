@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
+import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import {
   useParams,
@@ -10,13 +11,21 @@ import * as api from "../../services/api";
 import MoviePreview from "../../components/MoviePreview/MoviePreview";
 import Spiner from "../../components/Spiner/Spiner";
 import NavigationFromMovie from "../../components/NavigationFromMovie/NavigationFromMovie";
-import Cast from "../../components/Cast/Cast";
-import Reviews from "../../components/Reviews/Reviews";
+// import Cast from "../../components/Cast/Cast";
+// import Reviews from "../../components/Reviews/Reviews";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import css from "./MovieDetailsPage.module.css";
+
+const Cast = lazy(() =>
+  import("../../components/Cast/Cast" /* webpackChunkName: "Cast" */)
+);
+
+const Reviews = lazy(() =>
+  import("../../components/Reviews/Reviews" /* webpackChunkName: "Reviews" */)
+);
 
 export default function MovieDetailsPage() {
   const history = useHistory();
@@ -68,15 +77,17 @@ export default function MovieDetailsPage() {
       {movie && <MoviePreview movie={movie} />}
       {movie && <NavigationFromMovie />}
 
-      <Switch>
-        <Route path={`${path}/cast`} exact>
-          <Cast />
-        </Route>
+      <Suspense fallback={<Spiner />}>
+        <Switch>
+          <Route path={`${path}/cast`} exact>
+            <Cast />
+          </Route>
 
-        <Route path={`${path}/reviews`} exact>
-          <Reviews />
-        </Route>
-      </Switch>
+          <Route path={`${path}/reviews`} exact>
+            <Reviews />
+          </Route>
+        </Switch>
+      </Suspense>
       <ToastContainer />
     </>
   );
